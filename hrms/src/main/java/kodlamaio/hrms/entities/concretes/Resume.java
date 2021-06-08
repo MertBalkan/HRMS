@@ -37,6 +37,9 @@ public class Resume {
 	@Column(name="linkedin_address")
 	private String linkedinAddress;
 	
+	@Column(name = "photo_link")
+	private String photoLink;
+	
 	@ManyToOne()
 	@JoinColumn(name="candidate_id")
 	private Candidate candidate;
