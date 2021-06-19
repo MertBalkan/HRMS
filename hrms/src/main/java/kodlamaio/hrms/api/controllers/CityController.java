@@ -8,24 +8,25 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import kodlamaio.hrms.business.abstracts.UserService;
+import kodlamaio.hrms.business.abstracts.CityService;
 import kodlamaio.hrms.core.utilites.results.DataResult;
-import kodlamaio.hrms.entities.abstracts.User;
+import kodlamaio.hrms.entities.concretes.City;
 
-@CrossOrigin
 @RestController
-@RequestMapping("/api/users")
-public class UserController {
+@CrossOrigin
+@RequestMapping("/api/cities")
+public class CityController {
 	
-	private UserService userService;
-
+	private CityService cityService;
+	
 	@Autowired
-	public UserController(UserService userService) {
-		this.userService = userService;
+	public CityController(CityService cityService) {
+		this.cityService = cityService;
 	}
 	
 	@GetMapping("/getAll")
-	public DataResult<List<User>> getAll(){
-		return this.userService.getAll();
+	public DataResult<List<City>> getAll(){
+		return this.cityService.getAll();
 	}
+	
 }

@@ -10,30 +10,30 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import kodlamaio.hrms.business.abstracts.JobPositionService;
+import kodlamaio.hrms.business.abstracts.WorkTypeService;
 import kodlamaio.hrms.core.utilites.results.DataResult;
 import kodlamaio.hrms.core.utilites.results.Result;
-import kodlamaio.hrms.entities.concretes.JobPosition;
+import kodlamaio.hrms.entities.concretes.WorkType;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/positions")
-public class JobPositionController {
+@RequestMapping("/api/workTypes")
+public class WorkTypeController {
 	
-	private JobPositionService jobPositionService;
+	private WorkTypeService workTypeService;
 	
 	@Autowired
-	public JobPositionController(JobPositionService jobPositionService) {
-		this.jobPositionService = jobPositionService;
+	public WorkTypeController(WorkTypeService workTypeService) {
+		this.workTypeService = workTypeService;
 	}
 	
-	@GetMapping("/getall")
-	public DataResult<List<JobPosition>> getAll(){
-		return this.jobPositionService.getAll();
+	@GetMapping("/getAll")
+	DataResult<List<WorkType>> getAll(){
+		return this.workTypeService.getAll();
 	}
 	
 	@PostMapping("/add")
-	public Result add(@RequestBody JobPosition jobPosition) {
-		return this.jobPositionService.add(jobPosition);
+	Result add(@RequestBody WorkType workType) {
+		return this.workTypeService.add(workType);
 	}
 }
